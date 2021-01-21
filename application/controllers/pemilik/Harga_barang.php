@@ -20,10 +20,10 @@ class Harga_barang extends CI_Controller
 
     public function index()
     {
- 
+		$data['harga_barang'] = $this->db->get('harga_barang')->result();
     	$this->load->view('templates/header');
     	$this->load->view('templates/sidebar');
-    	$this->load->view('harga_barang/index');
+    	$this->load->view('harga_barang/index', $data);
     	$this->load->view('templates/footer');
 	}
 
@@ -41,6 +41,7 @@ class Harga_barang extends CI_Controller
 	public function edit($id_barang)
 	{
 		$where = array('id_barang' => $id_barang);
+		$data['barang1'] = $this->db->query("SELECT * FROM harga_barang WHERE id_barang =  $id_barang LIMIT 1")->result();
 		$data['barang'] = $this->db->query("SELECT * FROM harga_barang WHERE id_barang =  $id_barang")->result();
 
 		$this->load->view('templates/header');
@@ -49,26 +50,24 @@ class Harga_barang extends CI_Controller
 		$this->load->view('templates/footer');
 	}
 
+	public function lihat($id_barang)
+	{
+		$where = array('id_barang' => $id_barang);
+		$data['barang1'] = $this->db->query("SELECT * FROM harga_barang WHERE id_barang =  $id_barang LIMIT 1")->result();
+		$data['barang'] = $this->db->query("SELECT * FROM harga_barang WHERE id_barang =  $id_barang")->result();
+
+		$this->load->view('templates/header');
+		$this->load->view('templates/sidebar');
+		$this->load->view('harga_barang/lihat_harga_barang', $data);
+		$this->load->view('templates/footer');
+	}
+
 	public function aksi_tambah($id_barang)
 	{
-		// $id_barang = $this->input->post('id_barang');
-		// $jumlah_awal = $this->input->post('jumlah_awal');
-		// $jumlah_akhir = $this->input->post('jumlah_akhir');
-		// $harga_beli = $this->input->post('harga_beli');
-		// $harga_jual = $this->input->post('harga_jual');
-		// $harga_kembali = $this->input->post('harga_kembali');
-		// $harga_tukar = $this->input->post('harga_tukar');
+		
 		$waktu_modifikasi = date('Y-m-d');
-		// $id_user = $this->input->post('id_user');
 
 		$data = array(
-			// 'jumlah_awal' => $jumlah_awal,
-			// 'jumlah_akhir' => $jumlah_akhir,
-			// 'harga_beli' => $harga_beli,
-			// 'harga_jual' => $harga_jual,
-			// 'harga_kembali' => $harga_kembali,
-			// 'harga_tukar' => $harga_tukar,
-			// 'id_user' => $id_user
 			'id_barang' => $id_barang,
 			'jumlah_awal' => 0,
 			'jumlah_akhir' => 0,
@@ -85,11 +84,38 @@ class Harga_barang extends CI_Controller
 		
 	}
 
+	public function aksi_edit()
+	{
+		
+
+		//Update data attribut
+		$id_barang = $this->input->post('id_barang');
+		$id_harga_barang = $this->input->post('id_harga_barang');
+		$result = array();
+		foreach ($id_harga_barang as $key => $val) {
+			$result[] = array(
+				"id_harga_barang" => $id_harga_barang[$key],
+				"jumlah_awal" => $_POST['jumlah_awal'][$key],
+				"jumlah_akhir" => $_POST['jumlah_akhir'][$key],
+				"harga_beli" => $_POST['harga_beli'][$key],
+				"harga_jual"  =>  $_POST['harga_jual'][$key],
+				"harga_kembali" => $_POST['harga_kembali'][$key],
+				"harga_tukar"  =>$_POST['harga_tukar'][$key],
+				"waktu_modifikasi" => date('Y-m-d'),
+				"id_user" => $_POST['id_user'][$key]
+			);
+		}
+		$this->db->update_batch('harga_barang', $result, 'id_harga_barang');
+
+		redirect('pemilik/harga_barang/edit/' . $id_barang);
+	}
+
 	public function aksi_hapus($id_harga_barang, $id_barang)
 	{
 		$where = ['id_harga_barang' => $id_harga_barang];
 		$this->Model_harga_barang->hapus_data($where, 'harga_barang');
 
-		redirect('pemilik/harga_barang/edit/' . $id_barang);	}
+		redirect('pemilik/harga_barang/edit/' . $id_barang);	
+	}
  
 }

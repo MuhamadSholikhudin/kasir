@@ -1,56 +1,173 @@
-<div class="footer-wrap pd-20 mb-20 card-box">
-  DeskApp - Bootstrap 4 Admin Template By <a href="https://github.com/dropways" target="_blank">Ankit Hingarajiya</a>
-</div>
-</div>
-</div>
-<!-- js -->
-
-<script src="text/javascript">
-  $(document).ready(function() {
-    $('#DataTables_Table_0').DataTable();
-    // $('#jenis_barang').DataTable();
-    // $('#tempat_barang').DataTable();
+        <!-- footer content -->
+        <footer>
+          <div class="pull-right">
+            By Lisa Rachmawati
+          </div>
+          <div class="clearfix"></div>
+        </footer>
+        <!-- /footer content -->
+        </div>
+        </div>
 
 
 
-  });
-</script>
-<script>
-  function addCode() {
-    var nom = document.getElementById("no").value;
-    var no = parseInt(nom) + 1;
-    $('#add_after_me').append("<tr><td>" + no + "</td><td scope='row'><input type='number' name='' id=''></td><td scope='row'><input type='number' name='' id=''> </td> <td scope ='row'><input type='number' name='' id=''> </td> <td scope='row'><input type='number' name='' id=''> </td><td scope='row'>hapus </td> </tr>");
-    // var i = 0;
-    // do {
-    //   document.getElementById("add_after_me").insertAdjacentHTML("afterend", "<tr><td>" + i + "</td><td scope='row'><input type='number' name='' id=''></td><td scope='row'><input type='number' name='' id=''> </td> <td scope ='row'><input type='number' name='' id=''> </td> <td scope='row'><input type='number' name='' id=''> </td><td scope='row'>hapus </td> </tr>");
-    //   i++;
-    // } while (i);
 
-    document.getElementById("nom").value = no;
+        <!-- jQuery -->
+        <script src="<?= base_url('assets/'); ?>vendors/jquery/dist/jquery.min.js"></script>
+        <!-- Bootstrap -->
+        <script src="<?= base_url('assets/'); ?>vendors/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- FastClick -->
+        <script src="<?= base_url('assets/'); ?>vendors/fastclick/lib/fastclick.js"></script>
+        <!-- NProgress -->
+        <script src="<?= base_url('assets/'); ?>vendors/nprogress/nprogress.js"></script>
+        <!-- iCheck -->
+        <script src="<?= base_url('assets/'); ?>vendors/iCheck/icheck.min.js"></script>
+        <!-- Datatables -->
+        <script type="text/javascript">
+          $(document).ready(function() {
+            $('#DataTables_Table_0').DataTable();
 
-  }
-</script>
+            $("#cari").change(function() {
+              var keyword = $(this).val();
+              var pembeli = document.getElementById("pembeli").value;
+              // $("#hasil_cari").html(keyword);
+
+              $.ajax({
+                type: "POST",
+                url: "<?= site_url('pemilik/transaksi/cari'); ?>",
+                data: {
+                  keyword: keyword,
+                  pembeli: pembeli
+                },
+                // async: true,
+                dataType: 'json',
+                beforeSend: function() {
+                  $("#hasil_cari").hide();
+                  $("#tunggu").html('<div class="spinner-border" role="status"> <span class = "visually-hidden" >  </span> </div>');
+                },
+                success: function(html) {
+                  $("#tunggu").html('');
+                  $("#hasil_cari").show();
+                  $("#hasil_cari").html(html);
+                }
+              });
+              return false;
+            });
+
+            $("#bayar").keydown(function() {
+              $("#kembali").css("background-color", "yellow");
+              $("#bayar").css("background-color", "yellow");
+              var bayar = $(this).val();
+              var total = $("#total").val();
+              var kembali = bayar - total;
+              if (bayar < total) {
+                $("#kembali").val(0);
+                $("#btn_bayar").prop("disabled", true);
+              } else if (bayar > total) {
+                $("#kembali").val(kembali);
+                $("#btn_bayar").prop("disabled", false);
+              }
+
+
+            });
+
+            $("#bayar").keyup(function() {
+              $("#kembali").css("background-color", "white");
+              $("#bayar").css("background-color", "white");
+
+            });
+
+          });
+        </script>
 
 
 
-<script src="<?= base_url('assets/vendors/') ?>scripts/core.js"></script>
-<script src="<?= base_url('assets/vendors/') ?>scripts/script.min.js"></script>
-<script src="<?= base_url('assets/vendors/') ?>scripts/process.js"></script>
-<script src="<?= base_url('assets/vendors/') ?>scripts/layout-settings.js"></script>
-<script src="<?= base_url('assets/src/') ?>plugins/datatables/js/jquery.dataTables.min.js"></script>
-<script src="<?= base_url('assets/src/') ?>plugins/datatables/js/dataTables.bootstrap4.min.js"></script>
-<script src="<?= base_url('assets/src/') ?>plugins/datatables/js/dataTables.responsive.min.js"></script>
-<script src="<?= base_url('assets/src/') ?>plugins/datatables/js/responsive.bootstrap4.min.js"></script>
-<!-- buttons for Export datatable -->
-<script src="<?= base_url('assets/src/') ?>plugins/datatables/js/dataTables.buttons.min.js"></script>
-<script src="<?= base_url('assets/src/') ?>plugins/datatables/js/buttons.bootstrap4.min.js"></script>
-<script src="<?= base_url('assets/src/') ?>plugins/datatables/js/buttons.print.min.js"></script>
-<script src="<?= base_url('assets/src/') ?>plugins/datatables/js/buttons.html5.min.js"></script>
-<script src="<?= base_url('assets/src/') ?>plugins/datatables/js/buttons.flash.min.js"></script>
-<script src="<?= base_url('assets/src/') ?>plugins/datatables/js/pdfmake.min.js"></script>
-<script src="<?= base_url('assets/src/') ?>plugins/datatables/js/vfs_fonts.js"></script>
-<!-- Datatable Setting js -->
-<script src="<?= base_url('assets/vendors/') ?>scripts/datatable-setting.js"></script>
-</body>
+        <script type="text/javascript">
+          //Saldo awal
+          var rupiah = document.getElementById('saldomasuk1');
+          rupiah.addEventListener('keyup', function(e) {
+            // tambahkan 'Rp.' pada saat form di ketik
+            // gunakan fungsi formatRupiah() untuk mengubah angka yang di ketik menjadi format angka
+            // document.getElementById("saldomasuk1").value = rupiah.value;
 
-</html>
+
+            rupiah.value = formatRupiah(this.value);
+          });
+
+          /* Fungsi formatRupiah */
+          function formatRupiah(angka, prefix) {
+            var number_string = angka.replace(/[^,\d]/g, '').toString(),
+              split = number_string.split(','),
+              sisa = split[0].length % 3,
+              rupiah = split[0].substr(0, sisa),
+              ribuan = split[0].substr(sisa).match(/\d{3}/gi);
+
+            // tambahkan titik jika yang di input sudah menjadi angka ribuan
+            if (ribuan) {
+              separator = sisa ? '.' : '';
+              rupiah += separator + ribuan.join('.');
+            }
+
+            rupiah = split[1] != undefined ? rupiah + ',' + split[1] : rupiah;
+            return prefix == undefined ? rupiah : (rupiah ? rupiah : '');
+          }
+
+
+          //Transaksi
+          var rupiahtr = document.getElementById('jumlah1');
+          rupiahtr.addEventListener('keyup', function(e) {
+            // tambahkan 'Rp.' pada saat form di ketik
+            // gunakan fungsi formatRupiah() untuk mengubah angka yang di ketik menjadi format angka
+            // document.getElementById("saldomasuk1").value = rupiah.value;
+
+
+            rupiahtr.value = formatRupiah(this.value);
+          });
+
+          /* Fungsi formatRupiah */
+          function formatRupiah1(angka, prefix) {
+            var number_string = angka.replace(/[^,\d]/g, '').toString(),
+              split = number_string.split(','),
+              sisa = split[0].length % 3,
+              rupiahtr = split[0].substr(0, sisa),
+              ribuan = split[0].substr(sisa).match(/\d{3}/gi);
+
+            // tambahkan titik jika yang di input sudah menjadi angka ribuan
+            if (ribuan) {
+              separator = sisa ? '.' : '';
+              rupiahtr += separator + ribuan.join('.');
+            }
+
+            rupiahtr = split[1] != undefined ? rupiahtr + ',' + split[1] : rupiahtr;
+            return prefix == undefined ? rupiahtr : (rupiahtr ? rupiahtr : '');
+          }
+        </script>
+        <!-- <script type="text/javascript" charset="utf8" src="https://code.jquery.com/jquery-3.5.1.js"></script>
+        <script type=" text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script> -->
+        <!-- <script type=" text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.js"></script> -->
+        <script src="<?= base_url('assets/'); ?>vendors/datatables.net/js/jquery.dataTables.min.js"></script>
+        <script src="<?= base_url('assets/'); ?>vendors/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+        <script src="<?= base_url('assets/'); ?>vendors/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+        <script src="<?= base_url('assets/'); ?>vendors/datatables.net-buttons-bs/js/buttons.bootstrap.min.js"></script>
+        <script src="<?= base_url('assets/'); ?>vendors/datatables.net-buttons/js/buttons.flash.min.js"></script>
+        <script src="<?= base_url('assets/'); ?>vendors/datatables.net-buttons/js/buttons.html5.min.js"></script>
+        <script src="<?= base_url('assets/'); ?>vendors/datatables.net-buttons/js/buttons.print.min.js"></script>
+        <script src="<?= base_url('assets/'); ?>vendors/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js"></script>
+        <script src="<?= base_url('assets/'); ?>vendors/datatables.net-keytable/js/dataTables.keyTable.min.js"></script>
+        <script src="<?= base_url('assets/'); ?>vendors/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+        <script src="<?= base_url('assets/'); ?>vendors/datatables.net-responsive-bs/js/responsive.bootstrap.js"></script>
+        <script src="<?= base_url('assets/'); ?>vendors/datatables.net-scroller/js/dataTables.scroller.min.js"></script>
+        <script src="<?= base_url('assets/'); ?>vendors/jszip/dist/jszip.min.js"></script>
+        <script src="<?= base_url('assets/'); ?>vendors/pdfmake/build/pdfmake.min.js"></script>
+        <script src="<?= base_url('assets/'); ?>vendors/pdfmake/build/vfs_fonts.js"></script>
+
+        <!-- Custom Theme Scripts -->
+        <script src="<?= base_url('assets/'); ?>build/js/custom.min.js"></script>
+
+        <!-- <script>
+          $().DataTable();
+        </script> -->
+
+        </body>
+
+        </html>

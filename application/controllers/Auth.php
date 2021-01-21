@@ -66,7 +66,7 @@ class Auth extends CI_Controller{
 
                 switch ($auth->bagian) {
                     case 'pemilik':
-                        redirect('pemilik/dashboard');
+                        redirect('pemilik/barang');
                         break;
                     default:
                         break;

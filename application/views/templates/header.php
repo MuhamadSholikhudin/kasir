@@ -1,40 +1,53 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-  <!-- Basic Page Info -->
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <!-- Meta, title, CSS, favicons, etc. -->
   <meta charset="utf-8">
-  <title>DeskApp - Bootstrap Admin Dashboard HTML Template</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <!-- Site favicon -->
-  <link rel="apple-touch-icon" sizes="180x180" href="<?= base_url('assets/vendors/') ?>images/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="<?= base_url('assets/vendors/') ?>images/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="<?= base_url('assets/vendors/') ?>images/favicon-16x16.png">
+  <title>Sistem Bendahara Disdikpora</title>
 
-  <!-- Mobile Specific Metas -->
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <!-- Bootstrap -->
+  <link href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css">
+  <link href="<?= base_url('assets/'); ?>vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link href="<?= base_url('assets/'); ?>vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <!-- NProgress -->
+  <link href="<?= base_url('assets/'); ?>vendors/nprogress/nprogress.css" rel="stylesheet">
+  <!-- iCheck -->
+  <link href="<?= base_url('assets/'); ?>vendors/iCheck/skins/flat/green.css" rel="stylesheet">
+  <!-- Datatables -->
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.css">
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css">
 
-  <!-- Google Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-  <!-- CSS -->
-  <link rel="stylesheet" type="text/css" href="<?= base_url('assets/vendors/') ?>styles/core.css">
-  <link rel="stylesheet" type="text/css" href="<?= base_url('assets/vendors/') ?>styles/icon-font.min.css">
-  <link rel="stylesheet" type="text/css" href="<?= base_url('assets/src/') ?>plugins/datatables/css/dataTables.bootstrap4.min.css">
-  <link rel="stylesheet" type="text/css" href="<?= base_url('assets/src/') ?>plugins/datatables/css/responsive.bootstrap4.min.css">
-  <link rel="stylesheet" type="text/css" href="<?= base_url('assets/vendors/') ?>styles/style.css">
+  <link href="<?= base_url('assets/'); ?>vendors/datatables.net-bs/css/dataTables.bootstrap.min.css" rel="stylesheet">
+  <link href="<?= base_url('assets/'); ?>vendors/datatables.net-buttons-bs/css/buttons.bootstrap.min.css" rel="stylesheet">
+  <link href="<?= base_url('assets/'); ?>vendors/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css" rel="stylesheet">
+  <link href="<?= base_url('assets/'); ?>vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css" rel="stylesheet">
+  <link href="<?= base_url('assets/'); ?>vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css" rel="stylesheet">
 
-  <!-- Global site tag (gtag.js) - Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-119386393-1"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
+  <!-- Custom Theme Style -->
+  <link href="<?= base_url('assets/'); ?>build/css/custom.min.css" rel="stylesheet">
 
-    function gtag() {
-      dataLayer.push(arguments);
+  <!-- JQUERY AJAX -->
+  <!-- <script src="<?= base_url('assets/'); ?>js/jqueryt.min.js"></script> -->
+
+  <!-- Sweet Alert -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
+
+  <style>
+    .kiri {
+      /* background-color: #2e7ece; */
+      background-color: #17a2b8;
     }
-    gtag('js', new Date());
 
-    gtag('config', 'UA-119386393-1');
-  </script>
+    .kiri_pojok {
+      /* background-color: #2e7ece; */
+      background-color: black;
+    }
+  </style>
 </head>
 
-<body>

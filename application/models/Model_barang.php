@@ -31,6 +31,13 @@ class Model_barang extends CI_Model
         $this->db->delete($table);
     }
 
+
+    function get_barang($keyword)
+    {
+        $query = $this->db->query("SELECT * FROM barang WHERE  kode_barang LIKE '%$keyword%' OR nama_barang LIKE '%$keyword%' ");
+        return $query->result();
+    }
+
     public function find($id)
     {
         $result = $this->db->where('id_brg', $id)
