@@ -60,13 +60,13 @@
               var bayar = $(this).val();
               var total = $("#total").val();
               var kembali = bayar - total;
-              if (bayar < total) {
-                $("#kembali").val(0);
-                $("#btn_bayar").prop("disabled", true);
-              } else if (bayar > total) {
-                $("#kembali").val(kembali);
-                $("#btn_bayar").prop("disabled", false);
-              }
+              // if (bayar < total) {
+                // $("#kembali").val(0);
+                // $("#btn_bayar").prop("disabled", true);
+              // } else if (bayar > total) {
+              $("#kembali").val(kembali);
+              // $("#btn_bayar").prop("disabled", false);
+              // }
 
 
             });
@@ -74,7 +74,15 @@
             $("#bayar").keyup(function() {
               $("#kembali").css("background-color", "white");
               $("#bayar").css("background-color", "white");
-
+              var bayar = $(this).val();
+              var total = $("#total").val();
+              var kembali = bayar - total;
+              // if (bayar < total) {
+                // $("#kembali").val(0);
+                // $("#btn_bayar").prop("disabled", true);
+              // } else if (bayar > total) {
+              $("#kembali").val(kembali);
+            // }
             });
 
           });

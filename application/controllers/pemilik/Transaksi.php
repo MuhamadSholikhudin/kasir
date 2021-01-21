@@ -228,28 +228,46 @@ endforeach;
 		
 	}
 
-// 	$data['kat_harga']= $this->db->query("SELECT  * FROM harga_barang WHERE id_barang  = $id_barang")->result();
-// foreach( $kat_harga as $kat_hrg) :
-// if($jumlah >= $kat_hrg->jumlah_awal AND $jumlah <= $kat_hrg->jumlah_akhir){
-// $harga = $jumlah * $kat_hrg->harga_jual;
-// }
 
-// endforeach;
-
-Public function aksi_hapus_barang_transaksi($id_transaksi, $id_barang_transaksi){
-		// $cari_barang = $this->db->query("SELECT * FROM barang_traksaksi WHERE id_barang_transaksi = $id_barang_transaksi ");
-		// $hapus = $this->db->query("DELETE FROM barang_transaksi WHERE id_barang_transaksi = $id_barang_transaksi");
+	public function aksi_hapus_barang_transaksi($id_transaksi, $id_barang_transaksi)
+	{
 		$where = ['id_barang_transaksi' => $id_barang_transaksi];
-		$this->Model_barang_transaksi->hapus_data($where, 'barang_transaksi');		
+		$this->Model_barang_transaksi->hapus_data($where, 'barang_transaksi');
+		redirect('pemilik/transaksi/penjualan/' . $id_transaksi);
+	}
+
+	// Jika klik bayar maka muncul alert oke atau cancel
+	public function bayar()
+	{
+		$id_transaksi = $this->input->post('id_transaksi');
+		$total = $this->input->post('total');
+		$bayar = $this->input->post('bayar');
+		// $id_user = $this->input->post('id_user');
+		// $total = $this->input->post('kembali');
+
+		$data = [
+			'jumlah_transaksi' => $total,
+			'jumlah_tunai' => $bayar,
+			'status_transaksi' => 1,
+			'id_user' => $this->session->userdata('id_user')
+		];
+		$this->db->set($data);
+		$this->db->where('id_transaksi', $id_transaksi);
+		$this->db->update('transaksi');
+
 		redirect('pemilik/transaksi/penjualan/' . $id_transaksi);
 
-}
+	}
 
-// Jika klik bayar maka muncul alert oke atau cancel
-Public function bayar()
-{
-$total = $this->input->post ('total');
-}
+	public function cetak_transaksi($id_transaksi){
+		$data['transaksi'] = $this->db->query("SELECT * FROM transaksi WHERE id_transaksi = '$id_transaksi' ")->row();
+		$data['barang_transaksi'] = $this->db->query("SELECT * FROM barang_transaksi WHERE id_transaksi = '$id_transaksi' ")->result();
+		$data['barang_transaksi'] = $this->db->query("SELECT * FROM barang_transaksi WHERE id_transaksi = '$id_transaksi' ")->result();
+		
+		$this->load->view('cetak/transaksi', $data);
+
+
+	}
 
 
 }

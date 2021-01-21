@@ -8,13 +8,13 @@
         <div class="row">
             <div class="col-lg-12 main-chart">
                 <form action="" method="post">
-                <h3>Keranjang Penjualan
-                    <?php foreach ($transaksi as $tran) : ?>
+                    <h3>Keranjang Penjualan
+                        <?php foreach ($transaksi as $tran) : ?>
                             <input type="text" id="pembeli" name="pembeli" value="<?= $tran->nama_pembeli ?>">
                             <button class="btn btn-success" type="submit">Edit</button>
-                            <?php endforeach; ?>
-                        </h3>
-                    </form>
+                        <?php endforeach; ?>
+                    </h3>
+                </form>
 
                 <div class="row">
                     <div class="col-sm-4">
@@ -122,9 +122,9 @@
                                                         $tot = $this->db->query("SELECT SUM(jumlah) as jumlah FROM barang_transaksi WHERE id_transaksi = $brg_trs->id_transaksi");
                                                         if ($tot->num_rows() > 0) {
                                                             $total = $tot->row(); ?>
-                                                            <input type="number" id="total" class="form-control" name="jumlah_transaksi" value="<?= $total->jumlah ?>">
+                                                            <input type="number" id="total" class="form-control" name="total" value="<?= $total->jumlah ?>">
                                                         <?php } elseif ($tot->num_rows() < 1) { ?>
-                                                            <input type="number" id="total" class="form-control" name="jumlah_transaksi" value="0">
+                                                            <input type="number" id="total" class="form-control" name="total" value="0">
 
                                                     <?php }
 
@@ -138,32 +138,32 @@
                                                 <td>Bayar </td>
                                                 <td>
 
-                                                    <input type="number" id="bayar" class="form-control" name="jumlah_tunai" value="<?= $tran->jumlah_tunai ?>"></td>
+                                                    <input type="number" id="bayar" class="form-control" name="bayar" value="<?= $tran->jumlah_tunai ?>"></td>
 
                                                 <td><button class="btn btn-success" id="btn_bayar"><i class="fa fa-shopping-cart"></i> Bayar</button>
 
-                                                    <a class="btn btn-danger" href="fungsi/hapus/hapus.php?penjualan=jual">
+                                                    <a class="btn btn-danger" href="<?= base_url("pemilik/transaksi/") ?>">
                                                         <b>Ke Index</b></a></td>
                                                 </td>
                                             </tr>
                                         </form>
                                         <tr>
                                             <td>Kembali</td>
-                                            <td><input type="number" id="kembali" value="<?= $tran->jumlah_tunai - $tran->jumlah_transaksi ?>" class="form-control"></td>
+                                            <td><input type="number" id="kembali" name="kembali" value="<?= $tran->jumlah_tunai - $tran->jumlah_transaksi ?>" class="form-control"></td>
                                             <td></td>
                                         <?php endforeach; ?>
                                         <td>
                                             <?php foreach ($transaksi as $tran) : ?>
-                                                <?php if ($tran->status_transaksi > 0) { ?>
+                                                <?php if ($tran->status_transaksi < 1) { ?>
                                                     <input type="text" id="id_transaksi" class="form-control d-none" name="id_transaksi" value="<?= $tran->jumlah_transaksi ?>">
-                                                    <a href="<?= 'isi' ?>" target="_blank">
-                                                        <button class="btn btn-warning">
+                                                    <a href="<?= 'isi' ?>" >
+                                                        <button>
                                                             <i class="fa fa-print"></i> Print Untuk Bukti Pembayaran
                                                         </button></a>
-                                                <?php } elseif ($tran->status_transaksi < 1) { ?>
+                                                <?php } elseif ($tran->status_transaksi > 0) { ?>
                                                     <input type="text" id="id_transaksi" class="form-control d-none" name="id_transaksi" value="<?= $tran->jumlah_transaksi ?>">
-                                                    <a href="<?= 'isi' ?>" target="_blank">
-                                                        <button class="btn btn-default">
+                                                    <a href="<?= base_url("pemilik/transaksi/cetak_transaksi/") . $tran->id_transaksi ?>" target="_blank">
+                                                        <button class="btn btn-warning">
                                                             <i class="fa fa-print"></i> Print Untuk Bukti Pembayaran
                                                         </button></a>
                                                 <?php } ?>
