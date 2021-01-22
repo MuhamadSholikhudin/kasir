@@ -20,10 +20,16 @@ class Dashboard extends CI_Controller
 
     public function index()
     {
+        $data['user'] = $this->db->query("SELECT * FROM user");
+        $data['barang'] = $this->db->query("SELECT * FROM barang");
+        $data['transaksi'] = $this->db->query("SELECT * FROM transaksi WHERE status_transaksi > 0");
+        $data['transaksi_hari'] = $this->db->query("SELECT * FROM transaksi WHERE status_transaksi > 0");
+        $data['transaksi_minggu'] = $this->db->query("SELECT * FROM transaksi WHERE status_transaksi > 0");
+        $data['transaksi_bulan'] = $this->db->query("SELECT * FROM transaksi WHERE status_transaksi > 0");
 
         $this->load->view('templates/header');
         $this->load->view('templates/sidebar');
-        $this->load->view('dashboard/index');
+        $this->load->view('dashboard/index', $data);
         $this->load->view('templates/footer');
     }
 }

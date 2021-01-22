@@ -43,6 +43,7 @@ class Harga_barang extends CI_Controller
 		$where = array('id_barang' => $id_barang);
 		$data['barang1'] = $this->db->query("SELECT * FROM harga_barang WHERE id_barang =  $id_barang LIMIT 1")->result();
 		$data['barang'] = $this->db->query("SELECT * FROM harga_barang WHERE id_barang =  $id_barang")->result();
+		$data['nama_barang'] = $this->db->query("SELECT * FROM harga_barang JOIN barang WHERE barang.id_barang =  $id_barang")->row();
 
 		$this->load->view('templates/header');
 		$this->load->view('templates/sidebar');

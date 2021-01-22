@@ -21,7 +21,7 @@ class Auth extends CI_Controller{
                     redirect('auth/login');
             }else {
                 $this->session->set_userdata('username', $auth->username);
-                $this->session->set_userdata('nama', $auth->nama);
+                $this->session->set_userdata('nama_lengkap', $auth->nama_lengkap);
                 $this->session->set_userdata('bagian', $auth->bagian);
                 $this->session->set_userdata('id_user', $auth->id_user);
 
@@ -60,13 +60,13 @@ class Auth extends CI_Controller{
                 redirect('auth/login_pemilik');
             } else {
                 $this->session->set_userdata('username', $auth->username);
-                $this->session->set_userdata('nama', $auth->nama);
+                $this->session->set_userdata('nama_lengkap', $auth->nama_lengkap);
                 $this->session->set_userdata('bagian', $auth->bagian);
                 $this->session->set_userdata('id_user', $auth->id_user);
 
                 switch ($auth->bagian) {
                     case 'pemilik':
-                        redirect('pemilik/barang');
+                        redirect('pemilik/dashboard/');
                         break;
                     default:
                         break;

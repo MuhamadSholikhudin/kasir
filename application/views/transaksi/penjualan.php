@@ -10,8 +10,11 @@
                 <form action="" method="post">
                     <h3>Keranjang Penjualan
                         <?php foreach ($transaksi as $tran) : ?>
-                            <input type="text" id="pembeli" name="pembeli" value="<?= $tran->nama_pembeli ?>">
-                            <button class="btn btn-success" type="submit">Edit</button>
+                            <form action="<?= base_url("pemilik/transaksi/edit_pembeli") ?>" method="POST" enctype="multipart/form-data">
+                                <input type="text" class="d-none" name="id_tran" value="<?= $tran->id_transaksi ?>">
+                                <input type="text" id="pembeli" name="pembeli" value="<?= $tran->nama_pembeli ?>">
+                                <button class="btn btn-success" type="submit">Edit</button>
+                            </form>
                         <?php endforeach; ?>
                     </h3>
                 </form>
@@ -25,7 +28,7 @@
                             <div class="panel-body">
                                 <?php foreach ($transaksi as $tran) : ?>
                                     <input type="text" id="cari" class="form-control" name="cari" placeholder="Masukan : Kode / Nama Barang  [ENTER]">
-                                    <input type="text" id="pembeli" class="form-control d-none" name="pembeli" value="<?= $tran->id_transaksi ?>">
+                                    <input type="text" id="id_pembeli" class="form-control d-none" name="pembeli" value="<?= $tran->id_transaksi ?>">
                                 <?php endforeach; ?>
                             </div>
                         </div>
@@ -64,7 +67,7 @@
                                         <td><input type="text" readonly="readonly" class="form-control" value="<?= date('Y-m-d H:i:s') ?>" name="tgl"></td>
                                     </tr>
                                 </table>
-                                <table class="table table-bordered" id="example1">
+                                <table class="table table-bordered" id="DataTables_Table_0">
                                     <thead>
                                         <tr>
                                             <td> No</td>
@@ -118,17 +121,13 @@
                                             <tr>
                                                 <td>Total Semua </td>
                                                 <td>
-                                                    <?php foreach ($barang_transaksi as $brg_trs) :
-                                                        $tot = $this->db->query("SELECT SUM(jumlah) as jumlah FROM barang_transaksi WHERE id_transaksi = $brg_trs->id_transaksi");
-                                                        if ($tot->num_rows() > 0) {
-                                                            $total = $tot->row(); ?>
-                                                            <input type="number" id="total" class="form-control" name="total" value="<?= $total->jumlah ?>">
-                                                        <?php } elseif ($tot->num_rows() < 1) { ?>
-                                                            <input type="number" id="total" class="form-control" name="total" value="0">
-
-                                                    <?php }
-
-                                                    endforeach;                 ?>
+                                                    <?php
+                                                    if ($tot->num_rows() > 0) {
+                                                        $total = $tot->row(); ?>
+                                                        <input type="number" id="total" class="form-control" name="total" value="<?= $total->jumlah ?>">
+                                                    <?php } elseif ($tot->num_rows() < 1) { ?>
+                                                        <input type="number" id="total" class="form-control" name="total" value="0">
+                                                    <?php }  ?>
 
                                                     <?php foreach ($transaksi as $tran) : ?>
                                                         <input type="number" id="id_transaksi" class="form-control d-none" name="id_transaksi" value="<?= $tran->id_transaksi ?>">
@@ -156,7 +155,7 @@
                                             <?php foreach ($transaksi as $tran) : ?>
                                                 <?php if ($tran->status_transaksi < 1) { ?>
                                                     <input type="text" id="id_transaksi" class="form-control d-none" name="id_transaksi" value="<?= $tran->jumlah_transaksi ?>">
-                                                    <a href="<?= 'isi' ?>" >
+                                                    <a href="<?= 'isi' ?>">
                                                         <button>
                                                             <i class="fa fa-print"></i> Print Untuk Bukti Pembayaran
                                                         </button></a>

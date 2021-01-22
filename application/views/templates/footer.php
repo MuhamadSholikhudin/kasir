@@ -29,7 +29,7 @@
 
             $("#cari").change(function() {
               var keyword = $(this).val();
-              var pembeli = document.getElementById("pembeli").value;
+              var pembeli = document.getElementById("id_pembeli").value;
               // $("#hasil_cari").html(keyword);
 
               $.ajax({
@@ -49,6 +49,7 @@
                   $("#tunggu").html('');
                   $("#hasil_cari").show();
                   $("#hasil_cari").html(html);
+                  $("#cari").val("");
                 }
               });
               return false;
@@ -61,8 +62,8 @@
               var total = $("#total").val();
               var kembali = bayar - total;
               // if (bayar < total) {
-                // $("#kembali").val(0);
-                // $("#btn_bayar").prop("disabled", true);
+              // $("#kembali").val(0);
+              // $("#btn_bayar").prop("disabled", true);
               // } else if (bayar > total) {
               $("#kembali").val(kembali);
               // $("#btn_bayar").prop("disabled", false);
@@ -78,11 +79,11 @@
               var total = $("#total").val();
               var kembali = bayar - total;
               // if (bayar < total) {
-                // $("#kembali").val(0);
-                // $("#btn_bayar").prop("disabled", true);
+              // $("#kembali").val(0);
+              // $("#btn_bayar").prop("disabled", true);
               // } else if (bayar > total) {
               $("#kembali").val(kembali);
-            // }
+              // }
             });
 
           });

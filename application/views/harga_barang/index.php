@@ -13,16 +13,16 @@
                         <thead>
                             <tr role="row">
                                 <!-- <th class="table-plus datatable-nosort sorting_asc" rowspan="1" colspan="1" aria-label="Name">Id harga_barang</th> -->
-                                <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending">Nama Barang</th>
-                                <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending">jumlah Awal</th>
-                                <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending">Jumlah Akhir</th>
-                                <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending">Harga beli</th>
-                                <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending">Harga jual</th>
-                                <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending">Harga kembali</th>
-                                <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending">Harga tukar</th>
-                                <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending">User Modifikasi</th>
-                                <th class="sorting" tabindex="0" aria-controls="DataTables_Table_0" rowspan="1" colspan="1" aria-label="Office: activate to sort column ascending">Waktu Modifikasi</th>
-                                <th class="datatable-nosort sorting_disabled" rowspan="1" colspan="1" aria-label="Action">Aksi</th>
+                                <th>Nama Barang</th>
+                                <th>jumlah Awal</th>
+                                <th>Jumlah Akhir</th>
+                                <th>Harga beli</tharia-label="Office:>
+                                <th>Harga jual</th>
+                                <th>Harga kembali</th>
+                                <th>Harga tukar</th>
+                                <th>User Modifikasi</th>
+                                <th>Waktu Modifikasi</th>
+                                <th>Aksi</th>
                             </tr>
                         </thead>
                         <tbody>

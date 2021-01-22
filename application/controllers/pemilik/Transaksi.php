@@ -34,7 +34,8 @@ class Transaksi extends CI_Controller
 	{
 		$data['transaksi'] = $this->db->query("SELECT * FROM transaksi WHERE id_transaksi='$id_transaksi' ")->result();
 		$data['barang_transaksi'] = $this->db->query("SELECT * FROM barang_transaksi WHERE id_transaksi='$id_transaksi' ")->result();
-
+		$data['tot'] = $this->db->query("SELECT SUM(jumlah) as jumlah FROM barang_transaksi WHERE id_transaksi = $id_transaksi");
+		
 		$this->load->view('templates/header');
 		$this->load->view('templates/sidebar');
 		$this->load->view('transaksi/penjualan', $data);
@@ -97,19 +98,18 @@ class Transaksi extends CI_Controller
 		$banyak = $this->input->post('banyak');
 		$id_barang_transaksi = $this->input->post('id_barang_transaksi');
 
-		$car_bar = $this->db->query("SELECT * FROM harga_barang WHERE id_barang = '$id_barang'")->result();
+		$car_bar = $this->db->query("SELECT * FROM harga_barang WHERE id_barang = $id_barang ")->result();
 
-foreach($car_bar as $cari_barang):
+		foreach ($car_bar as $cari_barang) :
 			if ($banyak >= $cari_barang->jumlah_awal && $banyak <= $cari_barang->jumlah_akhir) {
 				$jumlah = $banyak * $cari_barang->harga_jual;
-				$this->db->set('jumlah', $jumlah);
 				$this->db->set('banyak', $banyak);
+				$this->db->set('jumlah', $jumlah);
 			}
-endforeach;
+		endforeach;
 
 
 		$data = array(
-			
 			'waktu_transaksi' => date('Y-m-d  H:i:s'),
 			'id_user' => $this->session->userdata('id_user')
 		);
@@ -257,6 +257,23 @@ endforeach;
 
 		redirect('pemilik/transaksi/penjualan/' . $id_transaksi);
 
+	}
+
+	// Jika klik bayar maka muncul alert oke atau cancel
+	public function edit_pembeli()
+	{
+		$id_tran = $this->input->post('id_tran');
+		$pembeli = $this->input->post('pembeli');
+		
+
+		$data = [
+			'nama_pembeli' => $pembeli,
+		];
+		$this->db->set($data);
+		$this->db->where('id_transaksi', $id_tran);
+		$this->db->update('transaksi');
+
+		redirect('pemilik/transaksi/penjualan/' . $id_tran);
 	}
 
 	public function cetak_transaksi($id_transaksi){

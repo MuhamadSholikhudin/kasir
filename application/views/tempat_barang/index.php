@@ -5,10 +5,15 @@
         <div class="clearfix"></div>
 
         <div class="bg-white p-1">
-            <a class="btn btn-primary" href="<?= base_url('pemilik/tempat_barang/tambah') ?>" role="button">Tambah Jenis Barang</a>
-            <h4>Data Tempat Barang</h4>
-            <hr>
+
+            
             <div class="row">
+                <div class="col-md-4">
+                    <a class="btn btn-primary" href="<?= base_url('pemilik/tempat_barang/tambah') ?>" role="button">Tambah Jenis Barang</a>
+                </div>
+                <div class="col-md-8">
+                    <h4>Data Tempat Barang</h4>
+                </div>
                 <div class="col-md-12 col-sm-12 table-responsive" border="1">
                     <table class="display text-dark" border="1" id="DataTables_Table_0" role="grid" aria-describedby="DataTables_Table_0_info">
                         <thead>

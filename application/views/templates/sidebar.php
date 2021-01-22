@@ -46,14 +46,25 @@
               <h3>General</h3>
               <ul class="nav side-menu">
                 <?php if ($this->session->userdata('bagian') == 'pemilik') { ?>
-                  <li class=""><a><i class="fa fa-file"></i> Transaksi <span class="fa fa-chevron-down"></span></a>
+                  <li>
+                    <a href="<?= base_url('pemilik/dashboard/') ?>">
+                      <i class="fa fa-home"></i> Dashboard
+                    </a>
+                  </li>
+                  <li class=""><a><i class="fa fa-money"></i> Transaksi <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu" style="display: none;">
                       <li><a href="<?= base_url('pemilik/transaksi/') ?>">Tansaksi</a></li>
-                      <li><a href="<?= base_url('pemilik/laporan_saldo') ?>">Laporan Data Saldo</a></li>
-                      <li><a href="<?= base_url('bendahara/laporan_transaksi') ?>">Laporan Transaksi</a></li>
-                      <li><a href="<?= base_url('bendahara/laporan_pajak') ?>">Laporan Pajak</a></li>
                     </ul>
                   </li>
+                  <li class=""><a><i class="fa fa-desktop"></i> Barang <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu" style="display: none;">
+                      <li><a href="<?= base_url('pemilik/barang/') ?>">Data Barang</a></li>
+                      <li><a href="<?= base_url('pemilik/harga_barang/') ?>">Data Harga Barang</a></li>
+                      <li><a href="<?= base_url('pemilik/stok_barang/') ?>">Data Stok Barang</a></li>
+                      <li><a href="<?= base_url('pemilik/tempat_barang/') ?>">Data Tempat Barang</a></li>
+                    </ul>
+                  </li>
+
                   <li class=""><a><i class="fa fa-file"></i> Laporan <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu" style="display: none;">
                       <li><a href="<?= base_url('bendahara/bku') ?>">Laporan BKU</a></li>
@@ -63,112 +74,60 @@
                     </ul>
                   </li>
 
-                  <li>
-                    <a href="<?= base_url('pemilik/index') ?>">
-                      <i class="fa fa-home"></i> Dashboard
-                    </a>
-                  </li>
-
-                  <li>
-                    <a href="<?= base_url('pemilik/data_transaksi') ?>">
-                      <i class="fa fa-money"></i> Transaksi
-                    </a>
-                  </li>
-                  <li>
-                    <a href="<?= base_url('pemilik/data_pajak') ?>">
-                      <i class="fa fa-indent"></i> Pajak
-                    </a>
-                  </li>
                   <li class="bg-light text-dark text-center">
-
                     <a class="bg-light text-dark">
                       Transaksi hari ini
                       <?php
                       $saldolama = $this->db->query("SELECT SUM(jumlah_transaksi) as jumtrak FROM transaksi WHERE DATE(waktu_transaksi) = CURDATE()");
                       $row = $saldolama->row();
-                      // $li = $row->id_saldo;
                       $lo = $row->jumtrak;
-                       
                       ?>
-                      <h4>
-
-                       <?=  rupiah($lo) ?>
-                      </h4>
-                    </a>
-                  </li>
-
-
-                <?php } elseif ($this->session->userdata('hakakses') == 'bendahara') { ?>
-
-                  <li>
-                    <a href="<?= base_url('bendahara/index') ?>">
-                      <i class="fa fa-home"></i> Dashboard
-                    </a>
-                  </li>
-                  <li>
-                    <a href="<?= base_url('bendahara/data_saldo_awal') ?>">
-                      <i class="fa fa-archive"></i> Saldo Awal
-                    </a>
-                  </li>
-                  <li>
-                    <a href="<?= base_url('bendahara/data_jenis_pengeluaran') ?>">
-                      <i class="fa fa-share-square-o"></i> Jenis Pengeluaran
-                    </a>
-                  </li>
-                  <li>
-                    <a href="<?= base_url('bendahara/pengguna') ?>">
-                      <i class="fa fa-user"></i> Pengguna
-                    </a>
-                  </li>
-                  <li>
-
-
-
-
-                  <li class=""><a><i class="fa fa-file"></i> Laporan <span class="fa fa-chevron-down"></span></a>
-                    <ul class="nav child_menu" style="display: none;">
-                      <li><a href="<?= base_url('bendahara/bku') ?>">Laporan BKU</a></li>
-                      <li><a href="<?= base_url('bendahara/laporan_saldo') ?>">Laporan Data Saldo</a></li>
-                      <li><a href="<?= base_url('bendahara/laporan_transaksi') ?>">Laporan Transaksi</a></li>
-                      <li><a href="<?= base_url('bendahara/laporan_pajak') ?>">Laporan Pajak</a></li>
-                    </ul>
-                  </li>
-
-                  <li class="bg-white text-dark text-center">
-
-                    <a class="bg-light text-dark">
-                      Sisa Saldo Hari Ini
-                      <?php
-                      $saldolama = $this->db->query(" SELECT id_saldo, jumlahsaldosisa FROM tb_saldoawal ORDER BY tglsaldosisa DESC LIMIT 1");
-                      $row = $saldolama->row();
-                      $li = $row->id_saldo;
-                      $lo = $row->jumlahsaldosisa;
-                      ?>
-                      <h4>
-
+                      <h5>
                         <?= rupiah($lo) ?>
-                      </h4>
+                      </h5>
                     </a>
                   </li>
-                <?php } elseif ($this->session->userdata('hakakses') == 'kadin') { ?>
+                <?php } elseif ($this->session->userdata('bagian') == 'karyawan') { ?>
                   <li>
-                    <a href="<?= base_url('kadin/index') ?>">
+                    <a href="<?= base_url('karyawan/dashboard/') ?>">
                       <i class="fa fa-home"></i> Dashboard
                     </a>
                   </li>
-                  <li class=""><a><i class="fa fa-file"></i> Laporan <span class="fa fa-chevron-down"></span></a>
+                  <li class=""><a><i class="fa fa-money"></i> Transaksi <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu" style="display: none;">
-                      <li><a href="<?= base_url('kadin/bku') ?>">Laporan BKU</a></li>
-                      <li><a href="<?= base_url('kadin/laporan_saldo') ?>">Laporan Data Saldo</a></li>
-                      <li><a href="<?= base_url('kadin/laporan_transaksi') ?>">Laporan Transaksi</a></li>
-                      <li><a href="<?= base_url('kadin/laporan_pajak') ?>">Laporan Pajak</a></li>
+                      <li><a href="<?= base_url('karyawan/transaksi/') ?>">Tansaksi</a></li>
                     </ul>
                   </li>
-                  <!-- <li>
-                    <a href="<?= base_url('kadin/bku') ?>">
-                      <i class="fa fa-file"></i> Laporan BKU
+                  <li class=""><a><i class="fa fa-desktop"></i> Barang <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu" style="display: none;">
+                      <li><a href="<?= base_url('karyawan/barang/') ?>">Data Barang</a></li>
+                      <li><a href="<?= base_url('karyawan/harga_barang/') ?>">Data Harga Barang</a></li>
+                      <li><a href="<?= base_url('karyawan/tempat_barang/') ?>">Data Tempat Barang</a></li>
+                    </ul>
+                  </li>
+
+                  <li class=""><a><i class="fa fa-file"></i> Laporan <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu" style="display: none;">
+                      <li><a href="<?= base_url('karyawan/bku') ?>">Laporan BKU</a></li>
+                      <li><a href="<?= base_url('karyawan/laporan_saldo') ?>">Laporan Data Saldo</a></li>
+                      <li><a href="<?= base_url('karyawan/laporan_transaksi') ?>">Laporan Transaksi</a></li>
+                      <li><a href="<?= base_url('karyawan/laporan_pajak') ?>">Laporan Pajak</a></li>
+                    </ul>
+                  </li>
+
+                  <li class="bg-light text-dark text-center">
+                    <a class="bg-light text-dark">
+                      Transaksi hari ini
+                      <?php
+                      $saldolama = $this->db->query("SELECT SUM(jumlah_transaksi) as jumtrak FROM transaksi WHERE DATE(waktu_transaksi) = CURDATE()");
+                      $row = $saldolama->row();
+                      $lo = $row->jumtrak;
+                      ?>
+                      <h5>
+                        <?= rupiah($lo) ?>
+                      </h5>
                     </a>
-                  </li> -->
+                  </li>
                 <?php } ?>
               </ul>
             </div>

@@ -1,20 +1,16 @@
 <div class="right_col" role="main" style="min-height: 4546px; ">
     <div class>
 
-        <div class="page-title">
-            <div class="title_center">
-                <h3>Selamat datang, </h3>
 
-            </div>
-
-        </div>
 
         <div class="clearfix"></div>
-        <br>
-        <br>
+
         <div class="row">
-            <div class="pd-20 ">
+            <div class="col-md-4">
                 <a class="btn btn-primary" href="<?= base_url('pemilik/barang/tambah') ?>" role="button">Tambah Barang</a>
+            </div>
+            <div class="col-md-8">
+                <h3>Data Barang</h3>
             </div>
             <div class="col-md-12 col-sm-12" border="1">
                 <table class="display text-dark" style="width:100%" border="1" id="DataTables_Table_0" role="grid" aria-describedby="DataTables_Table_0_info">
@@ -39,17 +35,17 @@
                                     <?php
                                     $hitung_harga = $this->db->query("SELECT id_barang FROM harga_barang WHERE id_barang = $brg->id_barang ");
                                     if ($hitung_harga->num_rows() > 0) { ?>
-                                        <a href="<?= base_url('pemilik/harga_barang/edit/') . $brg->id_barang ?>">
+                                        <a class="btn btn-primary" href="<?= base_url('pemilik/harga_barang/edit/') . $brg->id_barang ?>">
                                             <i class="icon-copy dw dw-check"> </i>Terisi
-
-                                        <?php } elseif ($hitung_harga->num_rows() < 1) {
-                                        ?>
-                                            <a href="<?= base_url('pemilik/harga_barang/tambah/') . $brg->id_barang ?>">
-                                                <i class="icon-copy dw dw-pencil"> </i>Isi harga
-                                            </a>
-                                        <?php
+                                        </a>
+                                    <?php } elseif ($hitung_harga->num_rows() < 1) {
+                                    ?>
+                                        <a class="btn btn-danger" href="<?= base_url('pemilik/harga_barang/tambah/') . $brg->id_barang ?>">
+                                            <i class="icon-copy dw dw-pencil"> </i>Isi harga
+                                        </a>
+                                    <?php
                                     }
-                                        ?>
+                                    ?>
                                 </td>
                                 <td><i class="icon-copy dw dw-check"></i>Tempat barang <i class="icon-copy dw dw-pencil"></i></td>
                                 <td><?= $brg->waktu_modifikasi ?></td>
@@ -68,26 +64,6 @@
                             </tr>
                         <?php endforeach; ?>
 
-                        <tr role="row" class="even">
-                            <td class="table-plus sorting_1" tabindex="0">Gloria F. Mead</td>
-                            <td>25</td>
-                            <td>Sagittarius</td>
-                            <td>2829 Trainer Avenue Peoria, IL 61602 </td>
-                            <td>29-03-2018</td>
-                            <td>29-03-2018</td>
-                            <td>
-                                <div class="dropdown">
-                                    <a class="btn btn-link font-24 p-0 line-height-1 no-arrow dropdown-toggle" href="#" role="button" data-toggle="dropdown">
-                                        <i class="dw dw-more"></i>
-                                    </a>
-                                    <div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
-                                        <a class="dropdown-item" href="#"><i class="dw dw-eye"></i> View</a>
-                                        <a class="dropdown-item" href="#"><i class="dw dw-edit2"></i> Edit</a>
-                                        <a class="dropdown-item" href="#"><i class="dw dw-delete-3"></i> Delete</a>
-                                    </div>
-                                </div>
-                            </td>
-                        </tr>
                     </tbody>
                 </table>
             </div>

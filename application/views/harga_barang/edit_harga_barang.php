@@ -5,7 +5,7 @@
         <div class="clearfix"></div>
 
         <div class="bg-white p-1">
-            <h3 class="text-center">Data Harga Barang</h3>
+            <h3 class="text-center">Data Harga <?= $nama_barang->nama_barang ?></h3>
             <hr>
             <!-- ISI HALAMAN -->
             <?php foreach ($barang1 as $brg) : ?>
