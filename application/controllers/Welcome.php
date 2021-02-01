@@ -6,10 +6,18 @@ class Welcome extends CI_Controller {
 
     public function index()
     {
-        $this->load->view('templates/header');
-        $this->load->view('templates/sidebar');
-        $this->load->view('templates/index');
-        $this->load->view('templates/footer');
+        // $this->load->view('templates/header');
+        // $this->load->view('templates/sidebar');
+        $this->load->view('templates_olshop/index');
+        // $this->load->view('templates/footer');
+    }
+
+    public function ind()
+    {
+        $this->load->view('templates_olshop/header');
+        $this->load->view('templates_olshop/navbar');
+        $this->load->view('templates_olshop/isi');
+        $this->load->view('templates_olshop/footer');
     }
     
 	// public function index()

@@ -39,6 +39,27 @@
                                 </div>
                             </div>
                             <div class="form-group row">
+                                <label class="col-sm-12 col-md-2 col-form-label">untuk</label>
+                                <div class="col-sm-12 col-md-10">
+                                    <select class="custom-select col-12" name="untuk">
+                                        <option value="Lainnya">ditempat</option>
+                                        <option value="Pria">Pria</option>
+                                        <option value="Wanita">Wanita</option>
+                                        <option value="Anak">Anak</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-sm-12 col-md-2 col-form-label">Jenis Barang</label>
+                                <div class="col-sm-12 col-md-10">
+                                    <select class="custom-select col-12" name="jenis_barang">
+                                        <option selected="">Choose...</option>
+                                        <option value="ditempat">ditempat</option>
+                                        <option value="online">Online</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group row">
                                 <label class="col-sm-12 col-md-2 col-form-label">Status Jual</label>
                                 <div class="col-sm-12 col-md-10">
                                     <select class="custom-select col-12" name="status_barang">
