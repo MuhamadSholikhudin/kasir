@@ -159,82 +159,82 @@
                                     <li><a href="#">Sampo <i class="fa fa-angle-right" aria-hidden="true"></i></a>
                                         <ul class="sub-category">
                                             <li><a href="<?= base_url('t/kategori/sampo/lifebouy') ?>">Lifeboy</a></li>
-                                            <li><a href="#">Clear</a></li>
-                                            <li><a href="#">Sunsilk</a></li>
-                                            <li><a href="#">Pantene</a></li>
-                                            <li><a href="#">Zinc</a></li>
-                                            <li><a href="#">Dove</a></li>
-                                            <li><a href="#">Emerone</a></li>
-                                            <li><a href="#">Tressme</a></li>
-                                            <li><a href="#">Sera Soft</a></li>
+                                            <li><a href="<?= base_url('t/kategori/sampo/lifebouy') ?>">Clear</a></li>
+                                            <li><a href="<?= base_url('t/kategori/sampo/lifebouy') ?>">Sunsilk</a></li>
+                                            <li><a href="<?= base_url('t/kategori/sampo/lifebouy') ?>">Pantene</a></li>
+                                            <li><a href="<?= base_url('t/kategori/sampo/lifebouy') ?>">Zinc</a></li>
+                                            <li><a href="<?= base_url('t/kategori/sampo/lifebouy') ?>">Dove</a></li>
+                                            <li><a href="<?= base_url('t/kategori/sampo/lifebouy') ?>">Emerone</a></li>
+                                            <li><a href="<?= base_url('t/kategori/sampo/lifebouy') ?>">Tressme</a></li>
+                                            <li><a href="<?= base_url('t/kategori/sampo/lifebouy') ?>">Sera Soft</a></li>
                                         </ul>
                                     </li>
                                     <li><a href="#">Sabun Mandi <i class="fa fa-angle-right" aria-hidden="true"></i></a>
                                         <ul class="sub-category">
-                                            <li><a href="#">Lifeboy</a></li>
-                                            <li><a href="#">Giv</a></li>
-                                            <li><a href="#">Harmony</a></li>
-                                            <li><a href="#">Lux</a></li>
-                                            <li><a href="#">Nuvo</a></li>
-                                            <li><a href="#">Dove</a></li>
-                                            <li><a href="#">Shinzui</a></li>
-                                            <li><a href="#">Cussun</a></li>
-                                            <li><a href="#">Asepso</a></li>
-                                            <li><a href="#">Citra</a></li>
-                                            <li><a href="#">Asepso</a></li>
+                                            <li><a href="<?= base_url('t/kategori/Sabun Mandi/lifebouy') ?>">Lifeboy</a></li>
+                                            <li><a href="<?= base_url('t/kategori/Sabun Mandi/lifebouy') ?>">Giv</a></li>
+                                            <li><a href="<?= base_url('t/kategori/Sabun Mandi/lifebouy') ?>">Harmony</a></li>
+                                            <li><a href="<?= base_url('t/kategori/Sabun Mandi/lifebouy') ?>">Lux</a></li>
+                                            <li><a href="<?= base_url('t/kategori/Sabun Mandi/lifebouy') ?>">Nuvo</a></li>
+                                            <li><a href="<?= base_url('t/kategori/Sabun Mandi/lifebouy') ?>">Dove</a></li>
+                                            <li><a href="<?= base_url('t/kategori/Sabun Mandi/lifebouy') ?>">Shinzui</a></li>
+                                            <li><a href="<?= base_url('t/kategori/Sabun Mandi/lifebouy') ?>">Cussun</a></li>
+                                            <li><a href="<?= base_url('t/kategori/Sabun Mandi/lifebouy') ?>">Asepso</a></li>
+                                            <li><a href="<?= base_url('t/kategori/Sabun Mandi/lifebouy') ?>">Citra</a></li>
+                                            <li><a href="<?= base_url('t/kategori/Sabun Mandi/lifebouy') ?>">Asepso</a></li>
                                         </ul>
                                     </li>
                                     <li><a href="#">Pembersih Baju<i class="fa fa-angle-right" aria-hidden="true"></i></a>
                                         <ul class="sub-category">
-                                            <li><a href="#">Rinso</a></li>
-                                            <li><a href="#">Soklin</a></li>
-                                            <li><a href="#">Daia</a></li>
-                                            <li><a href="#">Attack</a></li>
-                                            <li><a href="#">Boom</a></li>
-                                            <li><a href="#">Total Bunga</a></li>
-                                            <li><a href="#">Bukrim</a></li>
-                                            <li><a href="#">Vanish</a></li>
-                                            <li><a href="#">Citrit</a></li>
-                                            <li><a href="#">bayclin</a></li>
+                                            <li><a href="<?= base_url('t/kategori/sampo/lifebouy') ?>">Rinso</a></li>
+                                            <li><a href="<?= base_url('t/kategori/sampo/lifebouy') ?>">Soklin</a></li>
+                                            <li><a href="<?= base_url('t/kategori/sampo/lifebouy') ?>">Daia</a></li>
+                                            <li><a href="<?= base_url('t/kategori/sampo/lifebouy') ?>">Attack</a></li>
+                                            <li><a href="<?= base_url('t/kategori/sampo/lifebouy') ?>">Boom</a></li>
+                                            <li><a href="<?= base_url('t/kategori/sampo/lifebouy') ?>">Total Bunga</a></li>
+                                            <li><a href="<?= base_url('t/kategori/sampo/lifebouy') ?>">Bukrim</a></li>
+                                            <li><a href="<?= base_url('t/kategori/sampo/lifebouy') ?>">Vanish</a></li>
+                                            <li><a href="<?= base_url('t/kategori/sampo/lifebouy') ?>">Citrit</a></li>
+                                            <li><a href="<?= base_url('t/kategori/sampo/lifebouy') ?>">bayclin</a></li>
 
                                         </ul>
                                     </li>
                                     <li><a href="#">Pembersih Perabotan & Lantai<i class="fa fa-angle-right" aria-hidden="true"></i></a>
                                         <ul class="sub-category">
-                                            <li><a href="#">Sunlig</a></li>
-                                            <li><a href="#">Mama Lime</a></li>
-                                            <li><a href="#">Vixal</a></li>
-                                            <li><a href="#">Porstex</a></li>
-                                            <li><a href="#">Harpic</a></li>
-                                            <li><a href="#">Total Bunga</a></li>
-                                            <li><a href="#">Soklin Lantai</a></li>
-                                            <li><a href="#">Wipol</a></li>
-                                            <li><a href="#">Clean</a></li>
-                                            <li><a href="#">Supel pell</a></li>
+                                            <li><a href="<?= base_url('t/kategori/sampo/lifebouy') ?>">Sunlig</a></li>
+                                            <li><a href="<?= base_url('t/kategori/sampo/lifebouy') ?>">Mama Lime</a></li>
+                                            <li><a href="<?= base_url('t/kategori/sampo/lifebouy') ?>">Vixal</a></li>
+                                            <li><a href="<?= base_url('t/kategori/sampo/lifebouy') ?>">Porstex</a></li>
+                                            <li><a href="<?= base_url('t/kategori/sampo/lifebouy') ?>">Harpic</a></li>
+                                            <li><a href="<?= base_url('t/kategori/sampo/lifebouy') ?>">Total Bunga</a></li>
+                                            <li><a href="<?= base_url('t/kategori/sampo/lifebouy') ?>">Soklin Lantai</a></li>
+                                            <li><a href="<?= base_url('t/kategori/sampo/lifebouy') ?>">Wipol</a></li>
+                                            <li><a href="<?= base_url('t/kategori/sampo/lifebouy') ?>">Clean</a></li>
+                                            <li><a href="<?= base_url('t/kategori/sampo/lifebouy') ?>">Supel pell</a></li>
 
                                         </ul>
                                     </li>
                                     <li><a href="#">Susu<i class="fa fa-angle-right" aria-hidden="true"></i></a>
                                         <ul class="sub-category">
-                                            <li><a href="#">Bendeha</a></li>
-                                            <li><a href="#">Indomilk</a></li>
-                                            <li><a href="#">Dancow</a></li>
-                                            <li><a href="#">Dairy</a></li>
-                                            <li><a href="#">SGM</a></li>
-                                            <li><a href="#">Lactona / Lovetona</a></li>
-                                            <li><a href="#">Lain-lain</a></li>
+                                            <li><a href="<?= base_url('t/kategori/sampo/lifebouy') ?>">Bendeha</a></li>
+                                            <li><a href="<?= base_url('t/kategori/sampo/lifebouy') ?>">Indomilk</a></li>
+                                            <li><a href="<?= base_url('t/kategori/sampo/lifebouy') ?>">Dancow</a></li>
+                                            <li><a href="<?= base_url('t/kategori/sampo/lifebouy') ?>">Dairy</a></li>
+                                            <li><a href="<?= base_url('t/kategori/sampo/lifebouy') ?>">SGM</a></li>
+                                            <li><a href="<?= base_url('t/kategori/sampo/lifebouy') ?>">Lactona / Lovetona</a></li>
+                                            <li><a href="<?= base_url('t/kategori/sampo/lifebouy') ?>">Lain-lain</a></li>
                                         </ul>
                                     </li>
                                     <li><a href="#">Kopi<i class="fa fa-angle-right" aria-hidden="true"></i></a>
                                         <ul class="sub-category">
-                                            <li><a href="#">Kapal Api</a></li>
-                                            <li><a href="#">Luwak</a></li>
-                                            <li><a href="#">Tora Bika</a></li>
-                                            <li><a href="#">Abc</a></li>
-                                            <li><a href="#">Anget Sari</a></li>
-                                            <li><a href="#">Top Kopi</a></li>
-                                            <li><a href="#">Godday</a></li>
-                                            <li><a href="#">lain-lain</a></li>
+                                            <li><a href="<?= base_url('t/kategori/sampo/lifebouy') ?>">Kapal Api</a></li>
+                                            <li><a href="<?= base_url('t/kategori/sampo/lifebouy') ?>">Luwak</a></li>
+                                            <li><a href="<?= base_url('t/kategori/sampo/lifebouy') ?>">Tora Bika</a></li>
+                                            <li><a href="<?= base_url('t/kategori/sampo/lifebouy') ?>">Abc</a></li>
+                                            <li><a href="<?= base_url('t/kategori/sampo/lifebouy') ?>">Anget Sari</a></li>
+                                            <li><a href="<?= base_url('t/kategori/sampo/lifebouy') ?>">Top Kopi</a></li>
+                                            <li><a href="<?= base_url('t/kategori/sampo/lifebouy') ?>">Godday</a></li>
+                                            <li><a href="<?= base_url('t/kategori/sampo/lifebouy') ?>">lain-lain</a></li>
                                         </ul>
                                     </li>
 

@@ -8,6 +8,7 @@
         <div class="row">
             <div class="col-md-4">
                 <a class="btn btn-primary" href="<?= base_url('pemilik/barang/tambah') ?>" role="button">Tambah Barang</a>
+                <a class="btn btn-danger" href="<?= base_url('pemilik/barang/backup') ?>" role="button">Backup Barang</a>
             </div>
             <div class="col-md-8">
                 <h3>Data Barang</h3>

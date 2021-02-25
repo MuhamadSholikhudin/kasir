@@ -50,6 +50,35 @@
                                 </div>
 
                                 <div class="form-group row">
+                                    <label class="col-sm-12 col-md-2 col-form-label">untuk</label>
+                                    <div class="col-sm-12 col-md-10">
+                                        <select class="custom-select col-12" name="untuk">
+                                            <?php foreach ($untuk as $sta) : ?>
+                                                <?php if ($sta == $brg->untuk) : ?>
+                                                    <option value="<?= $sta ?>" selected><?= $sta ?></option>
+                                                <?php else : ?>
+                                                    <option value="<?= $sta ?>"><?= $sta ?></option>
+                                                <?php endif ?>
+                                            <?php endforeach ?>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-sm-12 col-md-2 col-form-label">Jenis Barang</label>
+                                    <div class="col-sm-12 col-md-10">
+                                        <select class="custom-select col-12" name="jenis_barang">
+                                            <?php foreach ($jenis_barang as $sta) : ?>
+                                                <?php if ($sta == $brg->jenis_barang) : ?>
+                                                    <option value="<?= $sta ?>" selected><?= $sta ?></option>
+                                                <?php else : ?>
+                                                    <option value="<?= $sta ?>"><?= $sta ?></option>
+                                                <?php endif ?>
+                                            <?php endforeach ?>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
                                     <label class="col-sm-12 col-md-2 col-form-label">Status Jual</label>
                                     <div class="col-sm-12 col-md-10">
                                         <select class="custom-select col-12" name="status_barang">

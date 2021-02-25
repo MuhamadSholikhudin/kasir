@@ -1,0 +1,21 @@
+$kategori = [
+'susu', 'kopi', 'sabun mandi', 'pembersih baju', 
+'pembersih perabotan & rumah', 'sampo', 'rokok', 'mie',
+'obat', 'obat nyamuk', 'larutan', 'bedak', 'jamu', 'pampes',
+'pasta gigi', 'sikat gigi', 'kopi'
+];
+                                          kopi
+                                         sabun mandi sabun mandi
+                                         pembersih baju pembersih baju
+                                         pembersih perabotan & rumah Pembersih perabotan & rumah
+                                         sampo sampo
+                                         rokok rokok
+                                         mie mie
+                                         obat obat
+                                         obat nyamuk obat nyamuk
+                                         larutan larutan
+                                         bedak jamu
+                                         pampes pampes
+                                         pasta gigi pasta gigi
+                                         sikat gigi sikat gigi
+                                         kopi kopi

@@ -42,7 +42,7 @@
                                 <label class="col-sm-12 col-md-2 col-form-label">untuk</label>
                                 <div class="col-sm-12 col-md-10">
                                     <select class="custom-select col-12" name="untuk">
-                                        <option value="Lainnya">ditempat</option>
+                                        <option value="Lainnya">Lainnya</option>
                                         <option value="Pria">Pria</option>
                                         <option value="Wanita">Wanita</option>
                                         <option value="Anak">Anak</option>
@@ -53,9 +53,9 @@
                                 <label class="col-sm-12 col-md-2 col-form-label">Jenis Barang</label>
                                 <div class="col-sm-12 col-md-10">
                                     <select class="custom-select col-12" name="jenis_barang">
-                                        <option selected="">Choose...</option>
-                                        <option value="ditempat">ditempat</option>
-                                        <option value="online">Online</option>
+                                        <?php foreach ($kategori as $kat) : ?>
+                                            <option value="<?= $kat ?>"><?= $kat ?></option>
+                                        <?php endforeach; ?>
                                     </select>
                                 </div>
                             </div>
@@ -63,7 +63,6 @@
                                 <label class="col-sm-12 col-md-2 col-form-label">Status Jual</label>
                                 <div class="col-sm-12 col-md-10">
                                     <select class="custom-select col-12" name="status_barang">
-                                        <option selected="">Choose...</option>
                                         <option value="ditempat">ditempat</option>
                                         <option value="online">Online</option>
                                     </select>
@@ -75,10 +74,10 @@
                                     <input type="file" name="gambar" class="form-control-file form-control height-auto">
                                 </div>
                             </div>
-                            <div class="form-group row">
+                            <div class="form-group row d-none">
                                 <label class="col-sm-12 col-md-2 col-form-label">Id User</label>
                                 <div class="col-sm-12 col-md-10">
-                                    <input class="form-control" type="text" name="id_user" value="" required>
+                                    <input class="form-control" type="text" name="id_user" value="<?= $this->session->userdata('id_user') ?>" required>
                                 </div>
                             </div>
                             <div class="form-group row">
