@@ -62,6 +62,7 @@
                       <li><a href="<?= base_url('pemilik/harga_barang/') ?>">Data Harga Barang</a></li>
                       <li><a href="<?= base_url('pemilik/stok_barang/') ?>">Data Stok Barang</a></li>
                       <li><a href="<?= base_url('pemilik/tempat_barang/') ?>">Data Tempat Barang</a></li>
+                      <li><a href="<?= base_url('pemilik/input_barang/') ?>">Input Barang XLSX</a></li>
                     </ul>
                   </li>
 

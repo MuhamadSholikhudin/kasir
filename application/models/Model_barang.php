@@ -70,4 +70,12 @@ $result = $this->db->where('id_brg', $id_brg)->get('tb_barang');
 
         return $this->db->get()->result();
     }
+
+    public function insert($data)
+    {
+        $insert = $this->db->insert_batch('barang', $data);
+        if ($insert) {
+            return true;
+        }
+    }
 }

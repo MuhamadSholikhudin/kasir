@@ -17,7 +17,8 @@
                         <th>jumlah awal</th>
                         <th>jumlah akhir</th>
                         <th>Harga beli</th>
-                        <th>Harga jual</th>
+                        <th>Harga Bakul</th>
+                        <th>Harga Umum</th>
                         <th>Harga kembali</th>
                         <th>Harga tukar</th>
                         <th>Hapus</th>
@@ -52,10 +53,18 @@
                                 <td>
                                     <div class="form-group row">
                                         <div class="col-xs-3">
-                                            <input type="number" class="form-control" value="<?= $brg->harga_jual ?>" name="harga_jual[]" id="" min="0">
+                                            <input type="number" class="form-control" value="<?= $brg->harga_bakul ?>" name="harga_bakul[]" id="" min="0">
                                         </div>
                                     </div>
                                 </td>
+                                <td>
+                                    <div class="form-group row">
+                                        <div class="col-xs-3">
+                                            <input type="number" class="form-control" value="<?= $brg->harga_umum ?>" name="harga_umum[]" id="" min="0">
+                                        </div>
+                                    </div>
+                                </td>
+
                                 <td>
                                     <div class="form-group row">
                                         <div class="col-xs-3">

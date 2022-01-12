@@ -23,6 +23,9 @@ class Barang extends CI_Controller
 
  
 
+
+ 
+
     public function index()
     {
 		$data['barang'] = $this->db->get('barang')->result();
@@ -36,11 +39,7 @@ class Barang extends CI_Controller
 		
 	public function tambah()
 	{
-		$data['kategori'] = [
-			'susu', 'kopi', 'sabun mandi', 'pembersih baju', 'pembersih perabotan & rumah', 
-			'sampo', 'rokok', 'mie', 'obat', 'obat nyamuk', 'larutan', 'bedak', 'jamu',	'pampes', 
-			'pasta gigi', 'sikat gigi', 'kopi'
-		];
+		$data['jenis_barang'] = $this->db->query("SELECT * FROM `jenis_barang` ")->result();
 		$this->load->view('templates/header');
 		$this->load->view('templates/sidebar');
 		$this->load->view('barang/tambah_barang', $data);
@@ -53,12 +52,7 @@ class Barang extends CI_Controller
 		$data['barang'] = $this->Model_barang->edit_barang($where, 'barang')->result();
 		$data['status'] = ['online', 'ditempat'];
 		$data['untuk'] = ['Pria', 'Wanita', 'Anak', 'Lainnya'];
-		$data['jenis_barang'] = [
-			'susu', 'kopi', 'sabun mandi', 'pembersih baju',
-			'pembersih perabotan & rumah', 'sampo', 'rokok', 'mie',
-			'obat', 'obat nyamuk', 'larutan', 'bedak', 'jamu', 'pampes',
-			'pasta gigi', 'sikat gigi', 'kopi', 'makanan ringan', 'minuman ringan'
-		];
+		$data['jenis_barang'] = $this->db->query("SELECT * FROM `jenis_barang` ")->result();
 
 		$this->load->view('templates/header');
 		$this->load->view('templates/sidebar');
@@ -92,6 +86,7 @@ class Barang extends CI_Controller
 
 		$gambar = $_FILES['gambar']['name'];
 		if ($gambar = '') {
+			
 		} else {
 			$config['upload_path'] = './uploads/barang/';
 			$config['allowed_types'] = 'jpg|jpeg|png|gif';
@@ -207,5 +202,12 @@ class Barang extends CI_Controller
 		redirect('pemilik/barang');
 	}
 
+
+	public function hapus($id_barang){
+		$where = ['id_barang' => $id_barang];
+		$this->Model_barang->hapus_data($where, 'barang');
+
+		redirect('pemilik/barang/');
+	}
 
 }

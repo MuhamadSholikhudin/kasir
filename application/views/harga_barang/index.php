@@ -4,20 +4,28 @@
 
         <div class="clearfix"></div>
 
+
+
+
+
+
+
+
         <div class="bg-white p-1">
             <h3 class="text-center">Data Harga Barang</h3>
             <hr>
             <div class="row">
                 <div class="col-md-12 col-sm-12 table-responsive" border="1">
-                    <table class="display text-dark" border="1" id="DataTables_Table_0" role="grid" aria-describedby="DataTables_Table_0_info">
+                    <table class="display text-dark" border="1" id="datatable" role="grid" aria-describedby="DataTables_Table_0_info">
                         <thead>
                             <tr role="row">
                                 <!-- <th class="table-plus datatable-nosort sorting_asc" rowspan="1" colspan="1" aria-label="Name">Id harga_barang</th> -->
                                 <th>Nama Barang</th>
                                 <th>jumlah Awal</th>
                                 <th>Jumlah Akhir</th>
-                                <th>Harga beli</tharia-label="Office:>
-                                <th>Harga jual</th>
+                                <th>Harga beli</th>
+                                <th>Harga Bakul</th>
+                                <th>Harga Umum</th>
                                 <th>Harga kembali</th>
                                 <th>Harga tukar</th>
                                 <th>User Modifikasi</th>
@@ -41,7 +49,8 @@
                                     <td><?= $hrg_brg->jumlah_awal ?></td>
                                     <td><?= $hrg_brg->jumlah_akhir ?></td>
                                     <td><?= $hrg_brg->harga_beli ?></td>
-                                    <td><?= $hrg_brg->harga_jual ?></td>
+                                    <td><?= $hrg_brg->harga_bakul ?></td>
+                                    <td><?= $hrg_brg->harga_umum ?></td>
                                     <td><?= $hrg_brg->harga_kembali ?></td>
                                     <td><?= $hrg_brg->harga_tukar ?></td>
                                     <td>
@@ -75,6 +84,9 @@
                                 <td></td>
                                 <td></td>
                                 <td></td>
+                                <td></td>
+
+
                                 <td></td>
                                 <td>
                                     <div class="dropdown">

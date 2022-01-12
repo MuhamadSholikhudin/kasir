@@ -39,9 +39,9 @@
     <table class="table" border="1">
         <thead>
             <tr>
-                <th>NM_BRG&nbsp;</th>
-                <th>JML_BRG&nbsp;</th>
-                <th>JML_HRG</th>
+                <th>NAMA_BRG&nbsp;</th>
+                <th>JUMLAH_BRG&nbsp;</th>
+                <th>JUMLAH_HRG</th>
             </tr>
         </thead>
         <tbody>
@@ -53,7 +53,7 @@
                         $barang = $this->db->query("SELECT * FROM barang WHERE id_barang = $brg_trs->id_barang");
                         $bar = $barang->row();
 
-                        echo $bar->nama_singkat;
+                        echo $bar->nama_barang;
                         ?>
                         &nbsp;
                     </td>
@@ -74,7 +74,7 @@
         Kembali&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; : <?= $transaksi->jumlah_tunai - $transaksi->jumlah_transaksi ?>
     </div>
     <h5>
-        Kasir &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: <?= $this->session->userdata('username') ?>
+        Kasir &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: <?= $this->session->userdata('nama_lengkap') ?>
     </h5>
     <h5>
         =========Terima Kasih===========

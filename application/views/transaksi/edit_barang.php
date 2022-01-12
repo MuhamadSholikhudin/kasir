@@ -60,7 +60,7 @@
                 <div class="form-group row">
                     <label class="col-sm-12 col-md-2 col-form-label">Status Jual</label>
                     <div class="col-sm-12 col-md-10">
-                        <select class="custom-select col-12" name="status_barang" >
+                        <select class="custom-select col-12" name="status_barang">
                             <?php foreach ($status as $sta) : ?>
                                 <?php if ($sta == $brg->status_barang) : ?>
                                     <option value="<?= $sta ?>" selected><?= $sta ?></option>

@@ -18,13 +18,13 @@ class Harga_barang extends CI_Controller
 		}
 	}
 
-    public function index()
-    {
+	public function index()
+	{
 		$data['harga_barang'] = $this->db->get('harga_barang')->result();
-    	$this->load->view('templates/header');
-    	$this->load->view('templates/sidebar');
-    	$this->load->view('harga_barang/index', $data);
-    	$this->load->view('templates/footer');
+		$this->load->view('templates/header');
+		$this->load->view('templates/sidebar');
+		$this->load->view('harga_barang/index', $data);
+		$this->load->view('templates/footer');
 	}
 
 	public function tambah($id_barang)
@@ -65,7 +65,7 @@ class Harga_barang extends CI_Controller
 
 	public function aksi_tambah($id_barang)
 	{
-		
+
 		$waktu_modifikasi = date('Y-m-d');
 
 		$data = array(
@@ -73,7 +73,8 @@ class Harga_barang extends CI_Controller
 			'jumlah_awal' => 0,
 			'jumlah_akhir' => 0,
 			'harga_beli' => 0,
-			'harga_jual' => 0,
+			'harga_bakul' => 0,
+			'harga_umum' => 0,
 			'harga_kembali' => 0,
 			'harga_tukar' => 0,
 			'id_user' => 0,
@@ -81,13 +82,12 @@ class Harga_barang extends CI_Controller
 		);
 
 		$this->Model_harga_barang->tambah_harga_barang($data, 'harga_barang');
-		redirect('pemilik/harga_barang/edit/'. $id_barang);
-		
+		redirect('pemilik/harga_barang/edit/' . $id_barang);
 	}
 
 	public function aksi_edit()
 	{
-		
+
 
 		//Update data attribut
 		$id_barang = $this->input->post('id_barang');
@@ -99,9 +99,10 @@ class Harga_barang extends CI_Controller
 				"jumlah_awal" => $_POST['jumlah_awal'][$key],
 				"jumlah_akhir" => $_POST['jumlah_akhir'][$key],
 				"harga_beli" => $_POST['harga_beli'][$key],
-				"harga_jual"  =>  $_POST['harga_jual'][$key],
+				"harga_bakul"  =>  $_POST['harga_bakul'][$key],
+				"harga_umum" => $_POST['harga_umum'][$key],
 				"harga_kembali" => $_POST['harga_kembali'][$key],
-				"harga_tukar"  =>$_POST['harga_tukar'][$key],
+				"harga_tukar"  => $_POST['harga_tukar'][$key],
 				"waktu_modifikasi" => date('Y-m-d'),
 				"id_user" => $_POST['id_user'][$key]
 			);
@@ -116,7 +117,7 @@ class Harga_barang extends CI_Controller
 		$where = ['id_harga_barang' => $id_harga_barang];
 		$this->Model_harga_barang->hapus_data($where, 'harga_barang');
 
-		redirect('pemilik/harga_barang/edit/' . $id_barang);	
+		redirect('pemilik/harga_barang/edit/' . $id_barang);
 	}
  
 }
